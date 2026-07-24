@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "99-待办tracker.md",
+                "file": "草稿纸0.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "99-待办tracker"
+              "title": "草稿纸0"
             }
           },
           {
@@ -137,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "99-待办tracker.md",
+                "file": "草稿纸0.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +147,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "99-待办tracker 的反向链接列表"
+              "title": "草稿纸0 的反向链接列表"
             }
           },
           {
@@ -227,12 +227,12 @@
   },
   "active": "d0ec7ef3d6c1d547",
   "lastOpenFiles": [
-    "LICENSE",
-    "README.md",
-    "2026-07-24.md",
-    "99-待办tracker.md",
-    "经济系统设计/06-交易行-流程循环.md",
     "经济系统设计/05-交易行-哈夫币机制.md",
+    "README.md",
+    "99-待办tracker.md",
+    "LICENSE",
+    "2026-07-24.md",
+    "经济系统设计/06-交易行-流程循环.md",
     "经济系统设计/集市-三角币机制.md",
     "经济系统设计/04-交易行-黑盒探测.md",
     "集市-资金流图.md",
