@@ -1,0 +1,263 @@
+{
+  "main": {
+    "id": "6b2643e7da02e55a",
+    "type": "split",
+    "children": [
+      {
+        "id": "8631227ba05cb254",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "455e972c92d61f67",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "经济系统设计/00-经济系统-MOC总览.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "00-经济系统-MOC总览"
+            }
+          },
+          {
+            "id": "87034df699fb502b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "经济系统设计/05-交易行-哈夫币机制.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "05-交易行-哈夫币机制"
+            }
+          },
+          {
+            "id": "d0ec7ef3d6c1d547",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "99-待办tracker.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "99-待办tracker"
+            }
+          },
+          {
+            "id": "a4beebbbb69ecf2c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "经济系统设计/02-货币体系-三币×两市场×隔离墙.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "02-货币体系-三币×两市场×隔离墙"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2f2bfde6d50b0639",
+    "type": "split",
+    "children": [
+      {
+        "id": "9808317765db3181",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "61e7f61d707b39a9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "2a0f5996e37766aa",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "6027b21d776bdcb0",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "6b4a49d56d9cbb5d",
+    "type": "split",
+    "children": [
+      {
+        "id": "7fff15418342f405",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "263564d8a6d1b0eb",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "99-待办tracker.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              },
+              "icon": "links-coming-in",
+              "title": "99-待办tracker 的反向链接列表"
+            }
+          },
+          {
+            "id": "fb826d20415ccd7a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "欢迎.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "欢迎 的出链列表"
+            }
+          },
+          {
+            "id": "0140b3767a192520",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "656a8f2698912c41",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "70c819adf2f75049",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "欢迎.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "欢迎 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "d0ec7ef3d6c1d547",
+  "lastOpenFiles": [
+    "2026-07-24.md",
+    "99-待办tracker.md",
+    "经济系统设计/06-交易行-流程循环.md",
+    "经济系统设计/05-交易行-哈夫币机制.md",
+    "经济系统设计/集市-三角币机制.md",
+    "经济系统设计/04-交易行-黑盒探测.md",
+    "集市-资金流图.md",
+    "15.md",
+    "经济系统设计/02-货币体系-三币×两市场×隔离墙.md",
+    "02-货币体系-三币×两市场×隔离墙.md",
+    "经济系统设计/00-经济系统-MOC总览.md",
+    "草稿纸0.md",
+    "草稿纸2.md",
+    "通过”搬砖“赚取三角卷MERMAID.md",
+    "三角洲行动：烽火地带 模式 系统设计拆解.md",
+    "局外资产中各种资产形式的设计意义分析及与同类游戏设计对比.md",
+    "局内外总循环.md",
+    "草稿纸1.md",
+    "交易行调控黑盒.md",
+    "经济系统设计/12-玩家画像与针对性优化.md",
+    "经济系统设计/11-设计意图反推与同类对比.md",
+    "经济系统设计/10-Canvas-局外资产流动.canvas",
+    "经济系统设计/10-Canvas-局外资产流动.md",
+    "经济系统设计/09-Canvas-局内资产流动.canvas",
+    "经济系统设计/09-Canvas-局内资产流动.md",
+    "经济系统设计/08-风险收益与保险机制.md",
+    "经济系统设计/07-回收与消耗系统.md",
+    "经济系统设计/03-宏观循环-哈夫币的流动与组成.md",
+    "未命名",
+    "经济系统设计",
+    "未命名.base",
+    "未命名.canvas"
+  ]
+}

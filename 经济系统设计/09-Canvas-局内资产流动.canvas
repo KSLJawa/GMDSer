@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"b9a34cee87b771dc","type":"text","text":"**局内资产**","x":-180,"y":-30,"width":250,"height":60},
+		{"id":"aa26758413b414c6","type":"text","text":"-局外带入  \n-地图露天刷新  \n-容器  \n\n\t-场景容器  \n\t-NPC容器  \n\t-玩家容器  \n\t\n-活动产出  ","x":-620,"y":-175,"width":350,"height":350},
+		{"id":"2804d545b2bcceaf","type":"text","text":"-全图大事件  \n-活动  \n-玩家主动行为  \n\n\t-丢下  \n\t-使用  \n-带出  \n-玩家死亡  \n-任务上交","x":160,"y":-187,"width":360,"height":375}
+	],
+	"edges":[
+		{"id":"bedd6a07816c8d47","fromNode":"aa26758413b414c6","fromSide":"right","toNode":"b9a34cee87b771dc","toSide":"left","label":"增加"},
+		{"id":"bdc1f8147dd4c7c2","fromNode":"b9a34cee87b771dc","fromSide":"right","toNode":"2804d545b2bcceaf","toSide":"left","label":"减少"}
+	]
+}

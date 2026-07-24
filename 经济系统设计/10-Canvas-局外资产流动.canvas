@@ -1,0 +1,14 @@
+{
+	"nodes":[
+		{"id":"c0bb2f43f7b07693","type":"text","text":"# 局外资产","x":-200,"y":-240,"width":420,"height":60},
+		{"id":"8b66b441c840a2a9","type":"text","text":"局外资产增加\n---\n-局内带出  \n-任务奖励 \n\n\t-物资奖励  \n\t-现金奖励  \n\t-道具奖励  \n\t\n-使用道具  \n-交易行收益  \n-”解压“物资  \n-特勤处制造收益  \n-领取兑换卷  \n-使用游戏外兑换码  \n-领取邮件  \n-市场价格浮动（存疑）  ","x":-640,"y":-240,"width":305,"height":580},
+		{"id":"64106dbaebce402b","type":"text","text":"局外资产减少\n---\n-带入局内  \n-提交任务  \n\n\t-提交道具  \n\t-提交物资  \n-购买道具  \n-交易行挂售  \n-购买图灵转  \n-使用兑换卷  \n-特勤处开始制造物品  \n-市场价格浮动（存疑）  ","x":360,"y":-240,"width":320,"height":500},
+		{"id":"ca050045549e3207","type":"text","text":"局外资产置换\n---\n-局外养成系统升级提交  \n\n\t-提交现金  \n\t-提交物资  \n-特勤处直接回收物资  \n","x":-200,"y":-120,"width":420,"height":300}
+	],
+	"edges":[
+		{"id":"9239d313c7f7995c","fromNode":"8b66b441c840a2a9","fromSide":"top","toNode":"c0bb2f43f7b07693","toSide":"top","label":"增加"},
+		{"id":"99876258654e9872","fromNode":"c0bb2f43f7b07693","fromSide":"top","toNode":"64106dbaebce402b","toSide":"top","label":"消耗"},
+		{"id":"2c53a8e2c00a1583","fromNode":"c0bb2f43f7b07693","fromSide":"left","toNode":"ca050045549e3207","toSide":"left"},
+		{"id":"e358f8bccf20587b","fromNode":"ca050045549e3207","fromSide":"right","toNode":"c0bb2f43f7b07693","toSide":"right"}
+	]
+}

@@ -1,0 +1,10 @@
+{
+  "cssTheme": "Cyber Glow",
+  "accentColor": "",
+  "baseFontSizeAction": true,
+  "nativeMenus": false,
+  "baseFontSize": 30,
+  "enabledCssSnippets": [
+    "mermaid-scale"
+  ]
+}
