@@ -75,5 +75,5 @@ tags:
 ---
 
 > [!info]- 输出规范备忘（全局生效，详见 [[00-Obsidian原生语法与输出规范]]）
-> 自本轮起：禁 emoji；状态用 task list；优先原生语法(properties ／ 可折叠 callout ／ 标题锚 ／ 块引用 ／ 高亮 ／ 脚注 ／ %% 注释)；mermaid 独框，回链节点文本须=笔记名再加 internal-link；引用图页用跳转 `[[图]]` 不嵌入；表格内别名竖线转义 `\|`；保留 changelog。
+> 禁 emoji；状态用 task list；优先原生语法(properties ／ 可折叠 callout ／ 标题锚 ／ 块引用 ／ 高亮 ／ 脚注 ／ %% 注释)；mermaid 独框，回链节点文本须=笔记名再加 internal-link；引用图页用跳转 `[[图]]` 不嵌入；表格内别名竖线转义 `\|`；保留 changelog。
 
