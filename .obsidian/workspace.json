@@ -42,7 +42,7 @@
               "type": "markdown",
               "state": {
                 "file": "99-待办tracker.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
@@ -227,6 +227,8 @@
   },
   "active": "d0ec7ef3d6c1d547",
   "lastOpenFiles": [
+    "00-Obsidian原生语法与输出规范.md",
+    "99-待办tracker.md",
     "新建 文本文档.txt",
     "README.md",
     "经济系统设计/00-经济系统-MOC总览.md",
@@ -240,7 +242,6 @@
     "经济系统设计/12-玩家画像与针对性优化.md",
     "经济系统设计/11-设计意图反推与同类对比.md",
     "三角洲行动：烽火地带 模式 系统设计拆解.md",
-    "99-待办tracker.md",
     "局外资产中各种资产形式的设计意义分析及与同类游戏设计对比.md",
     "局内外总循环.md",
     "交易行调控黑盒.md",
