@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "99-待办tracker.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "99-待办tracker"
+              "title": "README"
             }
           },
           {
@@ -137,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "99-待办tracker.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +147,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "99-待办tracker 的反向链接列表"
+              "title": "README 的反向链接列表"
             }
           },
           {
@@ -227,28 +227,28 @@
   },
   "active": "d0ec7ef3d6c1d547",
   "lastOpenFiles": [
-    "00-Obsidian原生语法与输出规范.md",
-    "99-待办tracker.md",
-    "新建 文本文档.txt",
+    "通过”搬砖“赚取三角卷MERMAID.md",
     "README.md",
+    "三角洲行动：烽火地带 模式 系统设计拆解.md",
+    "局外资产中各种资产形式的设计意义分析及与同类游戏设计对比.md",
+    "集市-资金流图.md",
+    "交易行调控黑盒.md",
+    "局内外总循环.md",
+    "草稿纸2.md",
+    "99-待办tracker.md",
+    "草稿纸0.md",
+    "99-草稿纸-待分拣.md",
+    "00-Obsidian原生语法与输出规范.md",
+    "新建 文本文档.txt",
     "经济系统设计/00-经济系统-MOC总览.md",
     "经济系统设计/02-货币体系-三币×两市场×隔离墙.md",
     "经济系统设计/01-范围界定与版本锚点.md",
     "经济系统设计/03-宏观循环-哈夫币的流动与组成.md",
-    "99-草稿纸-待分拣.md",
     "经济系统设计/10-Mermaid-局外资产流动.md",
     "经济系统设计/09-Mermaid-局内资产流动.md",
-    "通过”搬砖“赚取三角卷MERMAID.md",
     "经济系统设计/12-玩家画像与针对性优化.md",
     "经济系统设计/11-设计意图反推与同类对比.md",
-    "三角洲行动：烽火地带 模式 系统设计拆解.md",
-    "局外资产中各种资产形式的设计意义分析及与同类游戏设计对比.md",
-    "局内外总循环.md",
-    "交易行调控黑盒.md",
-    "集市-资金流图.md",
-    "草稿纸2.md",
     "草稿纸1.md",
-    "草稿纸0.md",
     "经济系统设计/06-交易行-流程循环.md",
     "经济系统设计/05-交易行-哈夫币机制.md",
     "LICENSE",
