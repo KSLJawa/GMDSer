@@ -1,0 +1,84 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const root = path.resolve(__dirname, '..');
+const src = JSON.parse(fs.readFileSync(path.join(__dirname, '经济与概率示例.json'), 'utf8'));
+const {first_hit_percent:p, cost_per_draw_tickets:c} = src.probability;
+const sum = p.reduce((a,b)=>a+b,0);
+if(p.length!==c.length || p.some(v=>v<0) || Math.abs(sum-100)>1e-8) throw new Error('Invalid input distribution');
+let f=0, paid=0, expectedDraws=0, expectedTickets=0;
+const rows=p.map((v,i)=>{
+  const conditional=v/(100-f)*100;
+  f+=v; paid+=c[i];
+  expectedDraws+=(i+1)*v/100; expectedTickets+=paid*v/100;
+  return {draw:i+1, first_hit_percent:v,cumulative_hit_percent:f,conditional_hit_percent:conditional,cost_tickets:c[i],cumulative_cost_tickets:paid};
+});
+const afford=(budget)=>rows.filter(r=>r.cumulative_cost_tickets<=budget).at(-1);
+const lossRatios=src.bankroll.wealth_wan.map(v=>src.bankroll.loss_wan/v);
+const gear=src.gear.map(g=>({name:g.name,expected_net_wan:g.extraction_probability*g.success_net_wan+(1-g.extraction_probability)*g.failure_net_wan}));
+const continuation=src.continuation.success_probability*src.continuation.success_terminal_wan+(1-src.continuation.success_probability)*src.continuation.failure_terminal_wan-src.continuation.additional_cost_wan;
+const bThreshold=(gear[0].expected_net_wan-src.gear[1].failure_net_wan)/(src.gear[1].success_net_wan-src.gear[1].failure_net_wan);
+const result={status:src.status,probability_sum_percent:sum,rows,expected_draws:expectedDraws,expected_tickets:expectedTickets,expected_nominal_yuan:expectedTickets*src.probability.coins_per_ticket/src.probability.nominal_coins_per_yuan,budget_50:afford(50),loss_ratios:lossRatios,gear,gear_b_threshold_probability:bThreshold,continuation_expected_terminal_wan:continuation};
+const survivalDraws=rows.reduce((a,r,i)=>a+(i===0?1:1-rows[i-1].cumulative_hit_percent/100),0);
+const survivalTickets=rows.reduce((a,r,i)=>a+r.cost_tickets*(i===0?1:1-rows[i-1].cumulative_hit_percent/100),0);
+if(Math.abs(survivalDraws-expectedDraws)>1e-8 || Math.abs(survivalTickets-expectedTickets)>1e-8) throw new Error('Independent survival-sum verification failed');
+const tolerance=1e-8;
+if(afford(50).draw!==5 || Math.abs(expectedTickets-104.34830826)>tolerance || Math.abs(expectedDraws-7.79067099)>tolerance || Math.abs(rows.at(-1).conditional_hit_percent-100)>tolerance) throw new Error('Probability verification failed');
+if(Math.abs(gear[0].expected_net_wan-12)>tolerance || Math.abs(gear[1].expected_net_wan-10)>tolerance || Math.abs(continuation-90)>tolerance) throw new Error('Economy example verification failed');
+fs.writeFileSync(path.join(__dirname,'复算结果.json'),JSON.stringify(result,null,2)+'\n');
+const figDir=path.join(root,'素材','分析图'); fs.mkdirSync(figDir,{recursive:true});
+const base=(w,h,body)=>'<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'"><style>text{font-family:Microsoft YaHei,Noto Sans CJK SC,Arial,sans-serif;fill:#172c3c} .muted{fill:#5d7080} .small{font-size:19px}</style><rect width="100%" height="100%" fill="#f4f7f9"/>'+body+'</svg>';
+const txt=(x,y,t,size=22,extra='')=>'<text x="'+x+'" y="'+y+'" font-size="'+size+'" '+extra+'>'+t+'</text>';
+let a=txt(56,70,'同样损失 30 万，下一局的压力相同吗？',36,'font-weight="700"');
+a+=txt(56,112,'假设示例 · 只比较损失占可支配资产的比例，不推定真实用户心理或行为',20,'class="muted"');
+const cards=[{x:56,name:'可支配资产 50 万',ratio:lossRatios[0],remain:'损失后剩余 20 万',color:'#c55b38',label:'60%'},{x:668,name:'可支配资产 5000 万',ratio:lossRatios[1],remain:'损失后剩余 4970 万',color:'#197d83',label:'0.6%'}];
+for(const v of cards){
+ a+='<rect x="'+v.x+'" y="160" width="556" height="340" rx="18" fill="#fff" stroke="#d6e1e6"/>';
+ a+=txt(v.x+30,208,v.name,25,'font-weight="600"');
+ a+=txt(v.x+30,290,v.label,58,'font-weight="700" style="fill:'+v.color+'"');
+ a+=txt(v.x+30,326,'本次损失占比',20,'class="muted"');
+ a+='<rect x="'+(v.x+30)+'" y="356" width="496" height="24" rx="4" fill="#e7eef2"/>';
+ a+='<rect x="'+(v.x+30)+'" y="356" width="'+(496*v.ratio)+'" height="24" rx="2" fill="'+v.color+'"/>';
+ a+=txt(v.x+30,423,v.remain,23);
+ a+=txt(v.x+30,465,'比例条使用相同的 0—100% 范围',18,'class="muted"');
+}
+a+=txt(56,553,'策划观察：还要结合仓库战备、装备券、入场要求与恢复耗时，判断能否继续行动。',21);
+a+=txt(56,594,'A01｜个人分析图，非游戏截图、非实测玩家分布。数据与计算见配套 JSON。',18,'class="muted"');
+fs.writeFileSync(path.join(figDir,'资产损失与承受能力.svg'),base(1280,630,a));
+const x0=100,y0=175,pw=820,ph=425;
+const xx=v=>x0+v/110*pw, yy=v=>y0+ph-v/100*ph;
+let b=txt(56,67,'角色研究：预算够到哪一次？',36,'font-weight="700"');
+b+=txt(56,109,'原稿概率分布的条件复算 · 概率来源待补公示，不代表已验证的线上出率',20,'class="muted"');
+b+=txt(100,151,'累计命中目标的概率',19,'class="muted"');
+for(const v of [0,25,50,75,100]){
+ b+='<line x1="'+x0+'" y1="'+yy(v)+'" x2="'+(x0+pw)+'" y2="'+yy(v)+'" stroke="#d4e0e7"/>';
+ b+=txt(82,yy(v)+6,v+'%',17,'text-anchor="end" class="muted"');
+}
+for(const v of [0,20,40,60,80,100,110]){
+ b+='<line x1="'+xx(v)+'" y1="'+y0+'" x2="'+xx(v)+'" y2="'+(y0+ph)+'" stroke="#e6edf1"/>';
+ b+=txt(xx(v),y0+ph+31,''+v,17,'text-anchor="middle" class="muted"');
+}
+let line='M '+xx(0)+' '+yy(0);
+for(const r of rows) line+=' H '+xx(r.cumulative_cost_tickets)+' V '+yy(r.cumulative_hit_percent);
+b+='<path d="'+line+'" fill="none" stroke="#197d83" stroke-width="4"/>';
+for(const r of rows) b+='<circle cx="'+xx(r.cumulative_cost_tickets)+'" cy="'+yy(r.cumulative_hit_percent)+'" r="4.5" fill="#197d83"/>';
+b+='<line x1="'+xx(50)+'" y1="'+y0+'" x2="'+xx(50)+'" y2="'+(y0+ph)+'" stroke="#c55b38" stroke-width="2" stroke-dasharray="7 6"/>';
+b+=txt(xx(50)+9,207,'50 张预算',19,'style="fill:#b24e30"');
+b+=txt(xx(34)-10,yy(2.215587)-17,'5 次',17,'text-anchor="end"');
+b+=txt(xx(54)+7,yy(5.302434)-17,'6 次',17);
+b+=txt(xx(79),yy(11.992924)-17,'7 次',17,'text-anchor="middle"');
+b+=txt(xx(110)-8,yy(100)-13,'8 次',17,'text-anchor="end"');
+b+=txt(510,667,'可用资格券预算／张',20,'text-anchor="middle"');
+b+='<rect x="968" y="175" width="256" height="425" rx="16" fill="#fff" stroke="#d6e1e6"/>';
+b+=txt(992,217,'50 张最多完成第 5 次',18,'font-weight="600"');
+b+=txt(992,265,afford(50).cumulative_hit_percent.toFixed(2)+'%',40,'font-weight="700" style="fill:#c55b38"');
+b+=txt(992,296,'累计命中率',18,'class="muted"');
+b+=txt(992,350,'第 6 次需累计 54 张',18);
+b+=txt(992,383,'此时累计命中约 5.30%',18,'class="muted"');
+b+='<line x1="992" y1="410" x2="1200" y2="410" stroke="#d6e1e6"/>';
+b+=txt(992,449,'期望消耗 104.35 张',19,'font-weight="600"');
+b+=txt(992,485,'命中后停止的模型',18,'class="muted"');
+b+=txt(992,525,'最多消耗 110 张',18);
+b+=txt(56,720,'预算节点间保持阶梯，不能线性插值；已有进度下的本次条件概率见正文。',20);
+b+=txt(56,758,'A02｜个人分析图；输入取自原稿，完整概率公示待 E05，模型身份与计算见配套 JSON。',18,'class="muted"');
+fs.writeFileSync(path.join(figDir,'角色研究预算与概率.svg'),base(1280,795,b));
+process.stdout.write(JSON.stringify({expected_draws:expectedDraws,expected_tickets:expectedTickets,budget50_hit_percent:afford(50).cumulative_hit_percent,gear,threshold:bThreshold,figures:2},null,2)+'\n');

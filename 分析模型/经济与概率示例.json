@@ -1,0 +1,60 @@
+{
+  "status": "分析示例，非官方概率与非游戏实测",
+  "updated": "2026-11-15",
+  "research_anchor": "S10，仅编辑日期已知，原始概率公示待E05",
+  "probability": {
+    "source": "原稿遗留的首次命中分布，原始权重和推导过程未附",
+    "first_hit_percent": [
+      0.08,
+      0.113245,
+      0.190945,
+      0.380331,
+      1.451066,
+      3.086847,
+      6.69049,
+      88.007076
+    ],
+    "cost_per_draw_tickets": [
+      1,
+      3,
+      5,
+      10,
+      15,
+      20,
+      25,
+      31
+    ],
+    "stop_on_target": true,
+    "coins_per_ticket": 100,
+    "nominal_coins_per_yuan": 10,
+    "cash_conversion_note": "仅名义全额新充值换算，不含活动、免费券、档位优惠或其他奖励价值"
+  },
+  "gear": [
+    {
+      "name": "低投入方案A",
+      "extraction_probability": 0.4,
+      "success_net_wan": 60,
+      "failure_net_wan": -20
+    },
+    {
+      "name": "高投入方案B",
+      "extraction_probability": 0.5,
+      "success_net_wan": 70,
+      "failure_net_wan": -50
+    }
+  ],
+  "bankroll": {
+    "loss_wan": 30,
+    "wealth_wan": [
+      50,
+      5000
+    ]
+  },
+  "continuation": {
+    "immediate_extraction_expected_wan": 90,
+    "success_terminal_wan": 110,
+    "failure_terminal_wan": 10,
+    "success_probability": 0.8,
+    "additional_cost_wan": 0
+  }
+}

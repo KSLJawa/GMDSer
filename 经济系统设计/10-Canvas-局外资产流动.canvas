@@ -1,14 +1,19 @@
 {
 	"nodes":[
-		{"id":"c0bb2f43f7b07693","type":"text","text":"# 局外资产","x":-200,"y":-240,"width":420,"height":60},
-		{"id":"8b66b441c840a2a9","type":"text","text":"局外资产增加\n---\n-局内带出  \n-任务奖励 \n\n\t-物资奖励  \n\t-现金奖励  \n\t-道具奖励  \n\t\n-使用道具  \n-交易行收益  \n-”解压“物资  \n-特勤处制造收益  \n-领取兑换卷  \n-使用游戏外兑换码  \n-领取邮件  \n-市场价格浮动（存疑）  ","x":-640,"y":-240,"width":305,"height":580},
-		{"id":"64106dbaebce402b","type":"text","text":"局外资产减少\n---\n-带入局内  \n-提交任务  \n\n\t-提交道具  \n\t-提交物资  \n-购买道具  \n-交易行挂售  \n-购买图灵转  \n-使用兑换卷  \n-特勤处开始制造物品  \n-市场价格浮动（存疑）  ","x":360,"y":-240,"width":320,"height":500},
-		{"id":"ca050045549e3207","type":"text","text":"局外资产置换\n---\n-局外养成系统升级提交  \n\n\t-提交现金  \n\t-提交物资  \n-特勤处直接回收物资  \n","x":-200,"y":-120,"width":420,"height":300}
+		{"id":"cash","type":"text","text":"## 哈夫币存量\n含可用、冻结与待领取\n[[03-宏观循环-哈夫币的流动与组成]]","x":0,"y":0,"width":400,"height":200},
+		{"id":"cash-in","type":"text","text":"## 现金新增\n系统现金奖励\n系统收购物资支付\n不含玩家间成交回款","x":-500,"y":-200,"width":360,"height":190},
+		{"id":"cash-out","type":"text","text":"## 现金回收\n不可退交易费用\n向系统支付的现金\n不含可退保证金","x":500,"y":-200,"width":360,"height":190},
+		{"id":"freeze","type":"text","text":"## 状态与归属\n可用／冻结／待领取之间转换\nP2P货款在玩家之间转移\n只因明确费用减少总量","x":0,"y":300,"width":400,"height":200},
+		{"id":"goods","type":"text","text":"## 局外物资\n带入／带出：位置转移\n玩家成交：归属转移\n系统产出、使用与回收另记","x":-500,"y":300,"width":400,"height":220},
+		{"id":"progress","type":"text","text":"## 不可逆养成进度\n提交现金和材料换功能\n不把历史投入加回可支配财富\n可能增加后续生产供给","x":500,"y":300,"width":400,"height":220}
 	],
 	"edges":[
-		{"id":"9239d313c7f7995c","fromNode":"8b66b441c840a2a9","fromSide":"top","toNode":"c0bb2f43f7b07693","toSide":"top","label":"增加"},
-		{"id":"99876258654e9872","fromNode":"c0bb2f43f7b07693","fromSide":"top","toNode":"64106dbaebce402b","toSide":"top","label":"消耗"},
-		{"id":"2c53a8e2c00a1583","fromNode":"c0bb2f43f7b07693","fromSide":"left","toNode":"ca050045549e3207","toSide":"left"},
-		{"id":"e358f8bccf20587b","fromNode":"ca050045549e3207","fromSide":"right","toNode":"c0bb2f43f7b07693","toSide":"right"}
+		{"id":"in-cash","fromNode":"cash-in","fromSide":"right","toNode":"cash","toSide":"left","label":"现金新增"},
+		{"id":"cash-out","fromNode":"cash","fromSide":"right","toNode":"cash-out","toSide":"left","label":"现金回收"},
+		{"id":"cash-freeze","fromNode":"cash","fromSide":"bottom","toNode":"freeze","toSide":"top","label":"状态转换"},
+		{"id":"freeze-cash","fromNode":"freeze","fromSide":"top","toNode":"cash","toSide":"bottom","label":"解冻／领取，总量不变"},
+		{"id":"cash-progress","fromNode":"cash","fromSide":"right","toNode":"progress","toSide":"left","label":"升级现金"},
+		{"id":"goods-progress","fromNode":"goods","fromSide":"right","toNode":"progress","toSide":"left","label":"升级材料"},
+		{"id":"progress-goods","fromNode":"progress","fromSide":"bottom","toNode":"goods","toSide":"bottom","label":"若解锁生产则可能新增"}
 	]
 }

@@ -1,11 +1,19 @@
 {
 	"nodes":[
-		{"id":"b9a34cee87b771dc","type":"text","text":"**局内资产**","x":-180,"y":-30,"width":250,"height":60},
-		{"id":"aa26758413b414c6","type":"text","text":"-局外带入  \n-地图露天刷新  \n-容器  \n\n\t-场景容器  \n\t-NPC容器  \n\t-玩家容器  \n\t\n-活动产出  ","x":-620,"y":-175,"width":350,"height":350},
-		{"id":"2804d545b2bcceaf","type":"text","text":"-全图大事件  \n-活动  \n-玩家主动行为  \n\n\t-丢下  \n\t-使用  \n-带出  \n-玩家死亡  \n-任务上交","x":160,"y":-187,"width":360,"height":375}
+		{"id":"pool","type":"text","text":"## 局内物资\n服务器存量视角\n位置、归属与生成分别统计\n[[09-Mermaid-局内资产流动]]","x":0,"y":0,"width":360,"height":190},
+		{"id":"spawn","type":"text","text":"## 新增\n地图、NPC与活动新生成物资\n玩家拾取不重复计为新增","x":-480,"y":-180,"width":360,"height":190},
+		{"id":"outside","type":"text","text":"## 局外物资\n带入／撤离／规则允许的保留\n只改变位置","x":-480,"y":100,"width":360,"height":190},
+		{"id":"ownership","type":"text","text":"## 归属转移\n死亡或丢弃后可被其他玩家拾取\n此时不能直接计为销毁","x":470,"y":-240,"width":360,"height":190},
+		{"id":"usage","type":"text","text":"## 实际消耗\n弹药、药品、耐久与工具次数\n不直接等于现金销毁","x":470,"y":0,"width":360,"height":190},
+		{"id":"exit","type":"text","text":"## 最终退出\n未带出且被清理\n或明确的任务／系统回收","x":470,"y":240,"width":360,"height":190}
 	],
 	"edges":[
-		{"id":"bedd6a07816c8d47","fromNode":"aa26758413b414c6","fromSide":"right","toNode":"b9a34cee87b771dc","toSide":"left","label":"增加"},
-		{"id":"bdc1f8147dd4c7c2","fromNode":"b9a34cee87b771dc","fromSide":"right","toNode":"2804d545b2bcceaf","toSide":"left","label":"减少"}
+		{"id":"spawn-pool","fromNode":"spawn","fromSide":"right","toNode":"pool","toSide":"left","label":"物资新增"},
+		{"id":"outside-pool","fromNode":"outside","fromSide":"right","toNode":"pool","toSide":"left","label":"带入：位置转移"},
+		{"id":"pool-outside","fromNode":"pool","fromSide":"left","toNode":"outside","toSide":"right","label":"带出／保留：位置转移"},
+		{"id":"pool-owner","fromNode":"pool","fromSide":"right","toNode":"ownership","toSide":"left","label":"改变持有人"},
+		{"id":"owner-pool","fromNode":"ownership","fromSide":"left","toNode":"pool","toSide":"right","label":"他人拾取"},
+		{"id":"pool-use","fromNode":"pool","fromSide":"right","toNode":"usage","toSide":"left","label":"使用减少"},
+		{"id":"pool-exit","fromNode":"pool","fromSide":"right","toNode":"exit","toSide":"left","label":"最终清理或回收"}
 	]
 }

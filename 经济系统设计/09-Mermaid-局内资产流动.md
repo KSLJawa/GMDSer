@@ -1,53 +1,24 @@
+# 局内物资：生成、转移与退出
+
+视角为服务器内的物资存量，局内与局外是位置。玩家死亡先改变物品归属与状态，不能把“死亡”和“他人拾取”同时算作销毁与新增。具体保留／回收条件待 E07 核验，见 [[13-证据索引与截图清单]]。
+
 ```mermaid
 flowchart LR
-    subgraph INC["　"]
-        direction LR
-        subgraph iA["　"]
-            direction TB
-            i1["-局外带入"]
-            i2["-地图露天刷新"]
-        end
-        subgraph iB["　"]
-            direction TB
-            i3["-容器"]
-            subgraph iBox["　"]
-                direction TB
-                i3a["-场景容器"]
-                i3b["-NPC容器"]
-                i3c["-玩家容器"]
-            end
-            i4["-活动产出"]
-        end
-    end
-
-    M["局内资产> 视角：服务器双池（局内池/局外池）；带出/带入为池间转移，非销毁。"]
-
-    subgraph DEC["　"]
-        direction LR
-        subgraph dA["　"]
-            direction TB
-            d1["-全图大事件"]
-            d2["-活动"]
-            d3["-玩家主动行为"]
-            subgraph dBox["　"]
-                direction TB
-                d3a["-丢下"]
-                d3b["-使用"]
-            end
-        end
-        subgraph dB["　"]
-            direction TB
-            d4["-带出"]
-            d5["-玩家死亡"]
-            d6["-任务上交"]
-        end
-    end
-
-    INC -->|增加| M
-    M -->|减少| DEC
-
-    style iA fill:none,stroke:none
-    style iB fill:none,stroke:none
-    style dA fill:none,stroke:none
-    style dB fill:none,stroke:none
+    SPAWN["地图、NPC与活动新生成物资"] -->|"新增"| IN["局内物资池"]
+    OUT["局外物资池"] -->|"带入：位置转移"| IN
+    IN -->|"撤离或规则允许的保留：位置转移"| OUT
+    IN --> OWN["玩家当前持有"]
+    OWN --> DROP["死亡或丢弃：变为可拾取／待处理状态"]
+    DROP -->|"其他玩家拾取：归属转移"| OWN
+    DROP -->|"最终未带出且被清理"| DEST["物资退出"]
+    OWN -->|"弹药、药品、工具使用"| USE["数量／耐久／次数消耗"]
+    OWN -->|"任务上交等明确回收"| DEST
 ```
+
+图不表示同一物品必然经历所有路径。队友回收、安全箱保留与无人带出，按实际结果互斥或分物品记账。
+
+关联：[[03-宏观循环-哈夫币的流动与组成#三、局内资产：位置与归属分开]]、[[08-风险收益与保险机制]]。
+
+## 修订记录
+
+- 2026-11-15：改为服务器物资视角，区分新增、位置转移、归属转移与最终退出。

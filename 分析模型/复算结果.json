@@ -1,0 +1,97 @@
+{
+  "status": "分析示例，非官方概率与非游戏实测",
+  "probability_sum_percent": 100,
+  "rows": [
+    {
+      "draw": 1,
+      "first_hit_percent": 0.08,
+      "cumulative_hit_percent": 0.08,
+      "conditional_hit_percent": 0.08,
+      "cost_tickets": 1,
+      "cumulative_cost_tickets": 1
+    },
+    {
+      "draw": 2,
+      "first_hit_percent": 0.113245,
+      "cumulative_hit_percent": 0.193245,
+      "conditional_hit_percent": 0.11333566853482786,
+      "cost_tickets": 3,
+      "cumulative_cost_tickets": 4
+    },
+    {
+      "draw": 3,
+      "first_hit_percent": 0.190945,
+      "cumulative_hit_percent": 0.38419000000000003,
+      "conditional_hit_percent": 0.19131470610381032,
+      "cost_tickets": 5,
+      "cumulative_cost_tickets": 9
+    },
+    {
+      "draw": 4,
+      "first_hit_percent": 0.380331,
+      "cumulative_hit_percent": 0.764521,
+      "conditional_hit_percent": 0.3817978290795407,
+      "cost_tickets": 10,
+      "cumulative_cost_tickets": 19
+    },
+    {
+      "draw": 5,
+      "first_hit_percent": 1.451066,
+      "cumulative_hit_percent": 2.215587,
+      "conditional_hit_percent": 1.4622451714068916,
+      "cost_tickets": 15,
+      "cumulative_cost_tickets": 34
+    },
+    {
+      "draw": 6,
+      "first_hit_percent": 3.086847,
+      "cumulative_hit_percent": 5.302434,
+      "conditional_hit_percent": 3.156788393258545,
+      "cost_tickets": 20,
+      "cumulative_cost_tickets": 54
+    },
+    {
+      "draw": 7,
+      "first_hit_percent": 6.69049,
+      "cumulative_hit_percent": 11.992923999999999,
+      "conditional_hit_percent": 7.06511295126635,
+      "cost_tickets": 25,
+      "cumulative_cost_tickets": 79
+    },
+    {
+      "draw": 8,
+      "first_hit_percent": 88.007076,
+      "cumulative_hit_percent": 100,
+      "conditional_hit_percent": 100,
+      "cost_tickets": 31,
+      "cumulative_cost_tickets": 110
+    }
+  ],
+  "expected_draws": 7.79067099,
+  "expected_tickets": 104.34830826000001,
+  "expected_nominal_yuan": 1043.4830826000002,
+  "budget_50": {
+    "draw": 5,
+    "first_hit_percent": 1.451066,
+    "cumulative_hit_percent": 2.215587,
+    "conditional_hit_percent": 1.4622451714068916,
+    "cost_tickets": 15,
+    "cumulative_cost_tickets": 34
+  },
+  "loss_ratios": [
+    0.6,
+    0.006
+  ],
+  "gear": [
+    {
+      "name": "低投入方案A",
+      "expected_net_wan": 12
+    },
+    {
+      "name": "高投入方案B",
+      "expected_net_wan": 10
+    }
+  ],
+  "gear_b_threshold_probability": 0.5166666666666667,
+  "continuation_expected_terminal_wan": 90
+}
